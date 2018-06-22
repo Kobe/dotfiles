@@ -1,0 +1,72 @@
+[alias]
+	st = status -sb
+	co = checkout
+	df = diff
+	lsb = "branch -v"
+	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ls = "log --oneline --decorate"
+	lsg = "log --oneline --decorate --graph"
+	untrack = "rm -r --cached --"
+	unstage = "reset HEAD --"
+	rf = "checkout HEAD --"
+	me = "log --author='stoecker' --after=yesterday --no-merges --oneline --reverse"
+	lsi = "ls-files --others --ignored --exclude-standard"
+	lsit = "ls-files --ignored --exclude-standard"
+	pl = pull --rebase
+	pu = push -u
+[core]
+	editor = vi
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[color "branch"]
+	current = cyan bold
+	local = cyan 
+	remote = red
+[github]
+	user = Kobe
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+	keepBackup = false
+[merge]
+	tool = Kaleidoscope
+[push]
+	default = current
+[pull]
+	default = current
+[status]
+	showUntrackedFiles = all
+[user]
+	name = Kobe
+	email = ingo.stoecker@gmail.com
+[rerere]
+	autoupdate = true
+	enabled = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = ~/.stCommitMsg
