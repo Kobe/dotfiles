@@ -1,0 +1,6 @@
+alias npm_global='npm list -g --depth=0'
+alias npmrc_default='rm ~/.npmrc && cp ~/.npmrc.default ~/.npmrc'
+alias ll='ls -la'
+alias brewUpgrade='brew update && brew upgrade && brew cleanup'
+alias brewCaskUpgrade='brew cask upgrade && brew cask cleanup'
+alias listen8080='lsof -i :8080 | grep LISTEN'
