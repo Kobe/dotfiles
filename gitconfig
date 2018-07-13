@@ -1,3 +1,5 @@
+[includeIf "gitdir:~/git/github"]
+	path = .gitconfig_github
 [alias]
 	st = status -sb
 	co = checkout
@@ -29,8 +31,6 @@
 	current = cyan bold
 	local = cyan 
 	remote = red
-[github]
-	user = Kobe
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
@@ -51,9 +51,6 @@
 	default = current
 [status]
 	showUntrackedFiles = all
-[user]
-	name = Kobe
-	email = ingo.stoecker@gmail.com
 [rerere]
 	autoupdate = true
 	enabled = true
