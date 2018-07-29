@@ -5,7 +5,7 @@
 	co = checkout
 	df = diff
 	lsb = "branch -v"
-	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset
+	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ls = "log --oneline --decorate"
 	lsg = "log --oneline --decorate --graph"
