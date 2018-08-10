@@ -4,6 +4,7 @@ ansible
 apr
 awscli
 bash-completion
+bower
 brotli
 czmq
 ffmpeg
