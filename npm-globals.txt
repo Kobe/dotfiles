@@ -1,9 +1,7 @@
-/usr/local/lib
-├── @vue/cli@3.0.0
-├── carbon-now-cli@1.0.4
-├── contentful-cli@0.16.1
-├── create-react-app@1.5.2
-├── imaging-heap@1.0.0
-├── npm@6.2.0
-└── stylelint@9.4.0
+@vue/cli@3.0.0
+carbon-now-cli@1.0.4
+contentful-cli@0.16.1
+create-react-app@1.5.2
+imaging-heap@1.0.0
+stylelint@9.4.0
 
