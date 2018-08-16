@@ -15,7 +15,7 @@ git
 gnu-sed
 go
 gradle
-groovysdk
+groovy
 grunt-cli
 gtksourceview3
 htop

@@ -5,6 +5,7 @@ apr
 atk
 awscli
 bash-completion
+bower
 brotli
 cairo
 czmq
@@ -26,7 +27,7 @@ go
 gobject-introspection
 gradle
 graphite2
-groovysdk
+groovy
 grunt-cli
 gsettings-desktop-schemas
 gtk+3
@@ -72,6 +73,7 @@ perl
 phantomjs
 pixman
 pkg-config
+prettier
 protobuf
 py2cairo
 py3cairo
