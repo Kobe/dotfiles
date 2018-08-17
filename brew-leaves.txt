@@ -11,6 +11,7 @@ ffmpeg
 fish
 fontforge
 galen
+gifsicle
 git
 gnu-sed
 go
