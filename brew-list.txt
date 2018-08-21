@@ -19,7 +19,6 @@ galen
 gdbm
 gdk-pixbuf
 gettext
-gifsicle
 git
 glib
 gnome-icon-theme
