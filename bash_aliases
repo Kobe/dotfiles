@@ -1,5 +1,4 @@
-alias brewCaskUpgrade='brew cask upgrade && brew cask cleanup'
-alias brewUpgrade='brew update && brew upgrade && brew cleanup'
+alias brewUpgrade='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 alias browserlist='npx browserslist'
 alias listen8080='lsof -i :8080 | grep LISTEN'
 alias ll='ls -la'
