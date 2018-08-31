@@ -3,4 +3,6 @@ postman
 vagrant
 vagrant-manager
 validator-sac
-webpack-dashboard
+virtualbox
+yed
+youtube-to-mp3
