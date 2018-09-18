@@ -4,5 +4,7 @@ vagrant
 vagrant-manager
 validator-sac
 virtualbox
+webpack-dashboard
+xquartz
 yed
 youtube-to-mp3
