@@ -1,5 +1,7 @@
 alias brewUpgrade='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 alias browserlist='npx browserslist'
+alias dockerList='docker ps -a'
+alias dockerRemove='docker ps -a -q | xargs docker rm -f'
 alias listen8080='lsof -i :8080 | grep LISTEN'
 alias ll='ls -la'
 alias mcp='mvn clean package'
