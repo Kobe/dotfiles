@@ -7,6 +7,7 @@ bower
 brotli
 czmq
 docker
+elm
 ffmpeg
 fish
 fontforge
