@@ -14,6 +14,8 @@ fontforge
 galen
 gdub
 git
+github-keygen
+github-release
 gnu-sed
 go
 gradle
@@ -21,6 +23,7 @@ gradle-completion
 groovy
 grunt-cli
 gtksourceview3
+heroku/brew/heroku
 htop
 httpstat
 intltool
