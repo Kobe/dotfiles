@@ -36,7 +36,7 @@ libsodium
 maven
 maven-completion
 neofetch
-node@8
+node@10
 nvm
 openshift-cli
 openssl@1.1
