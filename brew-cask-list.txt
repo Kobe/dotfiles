@@ -1,6 +1,7 @@
 github
 java8
 postman
+react-studio
 vagrant
 vagrant-manager
 validator-sac
