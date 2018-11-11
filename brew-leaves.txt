@@ -3,7 +3,6 @@ akamai
 ansible
 apr
 awscli
-bower
 brotli
 czmq
 docker
@@ -21,7 +20,6 @@ go
 gradle
 gradle-completion
 groovy
-grunt-cli
 gtksourceview3
 heroku/brew/heroku
 htop
@@ -37,7 +35,6 @@ maven
 maven-completion
 neofetch
 node@10
-nvm
 openshift-cli
 openssl@1.1
 p7zip
