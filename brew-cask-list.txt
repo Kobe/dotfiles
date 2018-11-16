@@ -8,6 +8,7 @@ github
 google-chrome
 google-chrome-canary
 handbrake
+istat-menus
 iterm2
 java8
 moneymoney
