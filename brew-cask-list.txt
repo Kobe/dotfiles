@@ -5,9 +5,11 @@ firefox
 firefox-developer-edition
 forklift
 github
+google-chat
 google-chrome
 google-chrome-canary
 handbrake
+intellij-idea
 istat-menus
 iterm2
 java8
@@ -19,6 +21,7 @@ safari-technology-preview
 sequel-pro
 slack
 sourcetree
+spotify
 teamviewer
 telegram
 tower2
