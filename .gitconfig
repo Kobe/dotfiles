@@ -17,7 +17,7 @@
 	lsit = "ls-files --ignored --exclude-standard"
 	pl = pull --rebase
 	pu = push -u
-	dummy=commit --allow-empty -m "#dummyCommit"
+	dummy=commit --allow-empty -m "[dummy] trigger CI pipeline"
 [core]
 	editor = vi
 	autocrlf = input
