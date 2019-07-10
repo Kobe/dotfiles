@@ -6,6 +6,7 @@ alias dockerRemoveDanglingVolumes='docker volume rm `docker volume ls -q -f dang
 alias dockerReset='docker system prune -a'
 alias gradleCleanBuild='gradle clean build'
 alias gradleCleanBuildWithSauceLabs='gradle clean build -PRUN-SAUCE'
+alias java_home='/usr/libexec/java_home'
 alias killAppOnPort='f(){ lsof -t -i tcp:"$1" | xargs kill;  unset -f f; }; f'
 alias listen8080='lsof -i :8080 | grep LISTEN'
 alias ll='ls -lah'
