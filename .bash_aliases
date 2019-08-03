@@ -1,3 +1,5 @@
+alias appLog='journalctl -u wish-list-ui -f'
+alias appLogPaged='journalctl -u wish-list-ui --no-pager'
 alias brewUpgrade='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 alias browserslist='npx browserslist'
 alias dockerList='docker ps -a'
