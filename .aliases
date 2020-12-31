@@ -1,23 +1,27 @@
-alias appLog='journalctl -u wish-list-ui -f'
-alias appLogPaged='journalctl -u wish-list-ui --no-pager'
-alias brewUpgrade='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
-alias browserslist='npx browserslist'
+# docker
 alias dockerList='docker ps -a'
 alias dockerRemove='docker ps -a -q | xargs docker rm -f'
 alias dockerRemoveDanglingVolumes='docker volume rm `docker volume ls -q -f dangling=true`'
 alias dockerReset='docker system prune -a'
-alias gradleCleanBuild='gradle clean build'
-alias gradleCleanBuildWithSauceLabs='gradle clean build -PRUN-SAUCE'
-alias java_home='/usr/libexec/java_home'
-alias killAppOnPort='f(){ lsof -t -i tcp:"$1" | xargs kill;  unset -f f; }; f'
-alias listen8080='lsof -i :8080 | grep LISTEN'
-alias ll='ls -lah'
-alias mavenCleanInstall='mvn clean install'
+
+# gradle
+alias gradleCleanBuild='./gradlew clean build'
+
+# maven
 alias mavenCleanPackage='mvn clean package'
 alias mavenCleanVerify='mvn clean verify'
 alias mavenSpringBootRun='mvn spring-boot:run'
-alias mavenNpm='mvn frontend:npm'
-alias mavenYarn='mvn frontend:yarn'
+alias mavenUpdates='mvn versions:display-dependency-updates'
+
+# misc
+alias appLog='journalctl -u wish-list-ui -f'
+alias appLogPaged='journalctl -u wish-list-ui --no-pager'
+alias brewUpgrade='brew update && brew upgrade && brew upgrade --cask && brew cleanup'
+alias browserslist='npx browserslist'
+alias cat='bat'
+alias killAppOnPort='f(){ lsof -t -i tcp:"$1" | xargs kill;  unset -f f; }; f'
+alias listen8080='lsof -i :8080 | grep LISTEN'
+alias ll='ls -lah'
 alias openPorts='lsof -iTCP -sTCP:LISTEN -n -P'
 alias simpleHttpServer='python -m SimpleHTTPServer 8080'
 alias yarnGlobals='yarn global list'
