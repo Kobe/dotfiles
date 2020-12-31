@@ -1,5 +1,3 @@
-[includeIf "gitdir:~/git/github"]
-	path = .gitconfig_github
 [alias]
 	st = status -sb
 	co = checkout
@@ -17,7 +15,7 @@
 	lsit = "ls-files --ignored --exclude-standard"
 	pl = pull --rebase
 	pu = push -u
-	dummy=commit --allow-empty -m "[dummy] trigger CI pipeline"
+	dummy=commit --allow-empty -m "dummy commit"
 [core]
 	editor = vi
 	autocrlf = input
@@ -56,9 +54,12 @@
 	autoupdate = true
 	enabled = true
 [filter "lfs"]
+	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-	clean = git-lfs clean -- %f
 [rebase]
 	autoStash = true
+[user]
+	name = Kobe
+	email = ingo.stoecker@gmail.com
