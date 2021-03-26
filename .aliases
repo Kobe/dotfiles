@@ -4,6 +4,9 @@ alias dockerRemove='docker ps -a -q | xargs docker rm -f'
 alias dockerRemoveDanglingVolumes='docker volume rm `docker volume ls -q -f dangling=true`'
 alias dockerReset='docker system prune -a'
 
+# eleventy
+alias e11yMarkdown='npx @11ty/eleventy --formats=md'
+
 # gradle
 alias gradleCleanBuild='./gradlew clean build'
 
@@ -22,10 +25,9 @@ alias listen8080='lsof -i :8080 | grep LISTEN'
 alias ll='ls -lah'
 alias openPorts='lsof -iTCP -sTCP:LISTEN -n -P'
 alias simpleHttpServer='python -m SimpleHTTPServer 8080'
-alias yarnGlobals='yarn global list'
 alias whoIsPort='f(){ lsof -iTCP -sTCP:LISTEN -n -P | awk "NR == 1 || /:$1./"; unset -f f; }; f'
 
-# system.d
+# systemd
 alias appRestart=systemctl restart $1
 alias appStart=systemctl restart $1
 alias appStop=systemctl restart $1
