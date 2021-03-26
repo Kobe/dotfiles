@@ -15,7 +15,7 @@
 	lsit = "ls-files --ignored --exclude-standard"
 	pl = pull --rebase
 	pu = push -u
-	dummy=commit --allow-empty -m "dummy commit"
+	dummy = commit --allow-empty -m "dummy commit"
 [core]
 	editor = vi
 	autocrlf = input
