@@ -7,7 +7,6 @@ plugins=(git colored-man-pages colorize pip python osx docker docker-compose emo
 source $ZSH/oh-my-zsh.sh
 
 export HOSTNAME=KobeMac
-export HOSTNAME
 
 export GRADLE_HOME=/usr/local/bin/gradle
 export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
@@ -24,3 +23,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
+export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/kobe/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
