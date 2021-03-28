@@ -1,4 +1,4 @@
-# dotfiles
+# my dotfiles
 
 personal selection of my most important dotfiles.
 
