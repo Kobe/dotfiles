@@ -22,9 +22,10 @@ alias browserslist='npx browserslist'
 alias cat='bat'
 alias killAppOnPort='f(){ lsof -t -i tcp:"$1" | xargs kill;  unset -f f; }; f'
 alias listen8080='lsof -i :8080 | grep LISTEN'
-alias ll='ls -lah'
+alias ll='exa -l'
 alias openPorts='lsof -iTCP -sTCP:LISTEN -n -P'
 alias simpleHttpServer='python -m SimpleHTTPServer 8080'
+alias top='ytop'
 alias whoIsPort='f(){ lsof -iTCP -sTCP:LISTEN -n -P | awk "NR == 1 || /:$1./"; unset -f f; }; f'
 
 # systemd
