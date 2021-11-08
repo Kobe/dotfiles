@@ -1,4 +1,9 @@
 # docker
+alias dc='docker-compose';
+alias dclean='docker-compose stop && docker-compose rm -af';
+alias dcu='dc up -d';
+alias dcl='dc logs -f';
+alias dl='docker logs -f';
 alias dockerList='docker ps -a'
 alias dockerRemove='docker ps -a -q | xargs docker rm -f'
 alias dockerRemoveDanglingVolumes='docker volume rm `docker volume ls -q -f dangling=true`'
@@ -8,9 +13,17 @@ alias dockerReset='docker system prune -a'
 alias e11yMarkdown='npx @11ty/eleventy --formats=md'
 
 # gradle
-alias gradleCleanBuild='./gradlew clean build'
+alias gradleCleanBuild='gradle clean build'
+alias gradleUpdateCheck='./gradlew dependencyUpdates -Drevision=release -DoutputFormatter=json,xml'
+alias gradleWrapperUpdate='gradle wrapper --gradle-version 7.2.0 --distribution-type all'
+
+# kubernetes
+alias k='kubectl'
+alias kn='kubectl ns'
+alias kx='kubectl ctx'
 
 # maven
+alias mavenCleanInstall='mvn clean install'
 alias mavenCleanPackage='mvn clean package'
 alias mavenCleanVerify='mvn clean verify'
 alias mavenSpringBootRun='mvn spring-boot:run'
@@ -24,8 +37,11 @@ alias killAppOnPort='f(){ lsof -t -i tcp:"$1" | xargs kill;  unset -f f; }; f'
 alias listen8080='lsof -i :8080 | grep LISTEN'
 alias ll='exa -l'
 alias openPorts='lsof -iTCP -sTCP:LISTEN -n -P'
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat {}'";
 alias simpleHttpServer='python -m SimpleHTTPServer 8080'
 alias top='ytop'
+alias yarnGlobals='yarn global list'
 alias whoIsPort='f(){ lsof -iTCP -sTCP:LISTEN -n -P | awk "NR == 1 || /:$1./"; unset -f f; }; f'
 
 # systemd
