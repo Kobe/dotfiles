@@ -2,7 +2,7 @@ export ZSH="/Users/kobe/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git colored-man-pages colorize pip python osx docker docker-compose emoji github iterm2 lighthouse mvn npm yarn gradle vagrant vscode)
+plugins=(git colored-man-pages colorize pip python macos docker docker-compose emoji github iterm2 lighthouse mvn npm yarn gradle vagrant vscode)
 
 source $ZSH/oh-my-zsh.sh
 
