@@ -10,7 +10,6 @@
 	untrack = "rm -r --cached --"
 	unstage = "reset HEAD --"
 	rf = "checkout HEAD --"
-	me = "log --author='stoecker' --after=yesterday --no-merges --oneline --reverse"
 	lsi = "ls-files --others --ignored --exclude-standard"
 	lsit = "ls-files --ignored --exclude-standard"
 	pl = pull --rebase
@@ -19,7 +18,7 @@
 [core]
 	editor = vi
 	autocrlf = input
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore
 [color]
 	ui = true
 	branch = auto
@@ -62,4 +61,4 @@
 	autoStash = true
 [user]
 	name = Kobe
-	email = ingo.stoecker@gmail.com
+	email = 81110+Kobe@users.noreply.github.com
