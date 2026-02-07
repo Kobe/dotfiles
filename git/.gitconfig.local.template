@@ -1,0 +1,7 @@
+# Copy this file to ~/.gitconfig.local and fill in your details
+# cp ~/.gitconfig.local.template ~/.gitconfig.local
+
+[user]
+    name = Kobe
+    email = 81110+Kobe@users.noreply.github.com
+    signingkey = ~/.ssh/foo.pub

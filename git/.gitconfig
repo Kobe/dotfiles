@@ -1,24 +1,23 @@
+[include]
+	path = ~/.gitconfig.local
+[init]
+	defaultBranch = main
 [alias]
 	st = status -sb
 	co = checkout
 	df = diff
-	lsb = "branch -v"
 	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ls = "log --oneline --decorate"
 	lsg = "log --oneline --decorate --graph"
-	untrack = "rm -r --cached --"
-	unstage = "reset HEAD --"
-	rf = "checkout HEAD --"
-	lsi = "ls-files --others --ignored --exclude-standard"
-	lsit = "ls-files --ignored --exclude-standard"
 	pl = pull --rebase
 	pu = push -u
-	dummy = commit --allow-empty -m "dummy commit"
+	empty = commit --allow-empty -m "empty commit"
 [core]
-	editor = vi
 	autocrlf = input
-	excludesfile = ~/.gitignore
+	editor = vi
+	excludesfile = ~/.gitignore_global
+    filemode = false
 [color]
 	ui = true
 	branch = auto
@@ -27,26 +26,18 @@
 	status = auto
 [color "branch"]
 	current = cyan bold
-	local = cyan 
+	local = cyan
 	remote = red
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-	tool = Kaleidoscope
 [difftool]
 	prompt = false
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
 [mergetool]
 	prompt = false
 	keepBackup = false
-[merge]
-	tool = Kaleidoscope
 [push]
-	default = current
+	default = simple
+	autoSetupRemote = true
 [pull]
-	default = current
+	default = rebase
 [status]
 	showUntrackedFiles = all
 [rerere]
@@ -59,6 +50,7 @@
 	required = true
 [rebase]
 	autoStash = true
-[user]
-	name = Kobe
-	email = 81110+Kobe@users.noreply.github.com
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

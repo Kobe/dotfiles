@@ -1,6 +1,5 @@
 .idea/
 *.iml
-node_modules/
-.DS_store
-.swp
+.DS_Store
 .vscode/
+.claude/
