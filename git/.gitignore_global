@@ -1,0 +1,13 @@
+node_modules/
+.idea/
+*.iml
+.DS_Store
+.swp
+.vscode/
+.yalc/
+yalc.lock
+target/
+out/
+build/
+settings.local.json
+.claude/
