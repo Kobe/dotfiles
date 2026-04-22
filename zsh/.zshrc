@@ -49,5 +49,7 @@ compinit -C -d "$ZSH_COMPDUMP"
 # --- Bun completions ----------------------------------
 [ -s ~/.bun/_bun ] && source ~/.bun/_bun
 
-# Next.js
+# disable telemetry transfers
+export DO_NOT_TRACK=true
 export NEXT_TELEMETRY_DISABLED=1
+export GH_TELEMETRY=false
