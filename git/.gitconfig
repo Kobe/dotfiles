@@ -51,6 +51,8 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[tag]
+	gpgsign = true
 # Last, so machine-local values win: git expands includes in place and the last
 # value read for a key takes effect.
 [include]
