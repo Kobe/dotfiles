@@ -141,8 +141,6 @@ brew "vegeta"
 brew "wget"
 # HTTP benchmarking tool
 brew "wrk"
-# Flexible and fast Zsh plugin manager
-brew "zinit"
 # Grafana Cloud CLI
 brew "grafana/grafana/gcx", trusted: true
 # Password manager that keeps all passwords secure behind one password
