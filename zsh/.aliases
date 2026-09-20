@@ -33,8 +33,8 @@ alias ll='eza -l --all'
 alias openPorts='lsof -iTCP -sTCP:LISTEN -n -P'
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat {}'";
-alias simpleHttpServer='python -m SimpleHTTPServer 8080'
-alias top='ytop'
+alias simpleHttpServer='python3 -m http.server 8080'
+alias top='btm'
 alias whoIsPort='f(){ lsof -iTCP -sTCP:LISTEN -n -P | awk "NR == 1 || /:$1./"; unset -f f; }; f'
 alias zshReload='exec zsh -l'
 
