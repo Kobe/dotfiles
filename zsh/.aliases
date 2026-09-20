@@ -22,7 +22,7 @@ alias mavenSpringBootRun='mvn spring-boot:run'
 alias mavenUpdates='mvn versions:display-dependency-updates'
 
 # misc
-alias brewUpgrade='brew update && brew upgrade && brew cleanup'
+alias brewUpgrade='brew update && brew upgrade --greedy-latest && brew cleanup'
 alias browserslist='npx browserslist'
 alias cat='bat'
 alias date="gdate"
@@ -37,3 +37,7 @@ alias simpleHttpServer='python -m SimpleHTTPServer 8080'
 alias top='ytop'
 alias whoIsPort='f(){ lsof -iTCP -sTCP:LISTEN -n -P | awk "NR == 1 || /:$1./"; unset -f f; }; f'
 alias zshReload='exec zsh -l'
+
+# github
+alias cpr='gh pr view --web'
+alias gpr='gh pr list --search "draft:false"'

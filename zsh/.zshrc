@@ -1,13 +1,12 @@
-export JAVA_HOME="$((/usr/libexec/java_home) 2>/dev/null)"
-export GRADLE_HOME="/opt/homebrew/opt/gradle/libexec"
+# JAVA_HOME / Gradle / Maven / Kotlin are provided by mise (activated below)
+autoload -Uz add-zsh-hook
 
 typeset -U path PATH
 path=(
-  /opt/homebrew/opt/node@22/bin
+  $HOME/Library/pnpm
   /opt/homebrew/bin
+  /opt/homebrew/sbin
   ${BUN_INSTALL:-$HOME/.bun}/bin
-  ${GRADLE_HOME:+$GRADLE_HOME/bin}
-  ${JAVA_HOME:+$JAVA_HOME/bin}
   /usr/local/sbin
   /sbin
   $HOME/.yarn/bin
@@ -17,23 +16,25 @@ path=(
 )
 export PATH
 
-# --- nvm: lazy load ----------------------------------------------------------
+# --- nvm: lazy load (node/npm/npx come from mise; nvm stays available on demand)
 export NVM_DIR="$HOME/.nvm"
-_nvm_lazy() {
-  unset -f nvm node npm npx
+nvm() {
+  unset -f nvm
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+  nvm "$@"
 }
-for _cmd in nvm node npm npx; do
-  eval "$_cmd() { _nvm_lazy; $_cmd \"\$@\"; }"
-done
 
 if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
 
+# company/project-specific aliases, machine-local, not tracked in dotfiles
+if [ -f ~/.aliases_company ]; then
+  . ~/.aliases_company
+fi
+
 # --- fzf ---------------------------------
 if [ -f ~/.fzf.zsh ]; then
-  autoload -Uz add-zsh-hook
   _load_fzf_once() { source ~/.fzf.zsh; add-zsh-hook -d precmd _load_fzf_once }
   add-zsh-hook precmd _load_fzf_once
 fi
@@ -53,3 +54,21 @@ compinit -C -d "$ZSH_COMPDUMP"
 export DO_NOT_TRACK=true
 export NEXT_TELEMETRY_DISABLED=1
 export GH_TELEMETRY=false
+
+# portless
+export PORTLESS_HTTPS=1
+export PORTLESS_TLD=test
+
+# git branch name in prompt (registered via hook so it coexists with fzf's precmd)
+autoload -Uz vcs_info
+add-zsh-hook precmd vcs_info
+zstyle ':vcs_info:git:*' formats ' (%b)'
+setopt PROMPT_SUBST
+PROMPT='%n@%m %~${vcs_info_msg_0_} %# '
+
+export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
+export HOMEBREW_NO_ENV_HINTS=1
+export PNPM_HOME="$HOME/Library/pnpm"
+
+# mise: polyglot version manager (Java, Gradle, Maven, Kotlin, ...)
+command -v mise >/dev/null && eval "$(mise activate zsh)"
