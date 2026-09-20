@@ -6,7 +6,7 @@ alias dcl='dc logs -f';
 alias dl='docker logs -f';
 alias dockerList='docker ps -a'
 alias dockerRemove='docker ps -a -q | xargs docker rm -f'
-alias dockerRemoveDanglingVolumes='docker volume rm `docker volume ls -q -f dangling=true`'
+alias dockerRemoveDanglingVolumes='docker volume ls -q -f dangling=true | xargs docker volume rm'
 alias dockerReset='docker system prune -a'
 
 # kubernetes
