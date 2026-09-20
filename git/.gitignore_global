@@ -1,5 +1,6 @@
 node_modules/
 .idea/
+.junie
 *.iml
 .DS_Store
 .swp
@@ -10,4 +11,4 @@ target/
 out/
 build/
 settings.local.json
-.claude/
+.claude/settings.local.json
