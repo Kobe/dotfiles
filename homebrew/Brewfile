@@ -23,8 +23,6 @@ brew "webp"
 brew "composer"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
-# Manage Apple Container with Docker Compose files
-brew "container-compose"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Pack, ship and run any application as a lightweight container
