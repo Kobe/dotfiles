@@ -15,7 +15,6 @@
 	autocrlf = input
 	editor = vi
 	excludesfile = ~/.gitignore_global
-    filemode = false
 [color]
 	ui = true
 	branch = auto
