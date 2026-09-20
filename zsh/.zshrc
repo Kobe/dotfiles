@@ -69,6 +69,16 @@ export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
 export HOMEBREW_NO_ENV_HINTS=1
 export PNPM_HOME="$HOME/Library/pnpm"
 
+# GitHub token for tenv/mise release lookups (avoids API rate limits).
+# Deliberately here and not in .zshenv: .zshenv runs before path_helper adds
+# Homebrew to PATH, so gh is not found there, and a token set that early would
+# be inherited by every non-interactive shell. Costs ~0.03s.
+if [[ -z "$GITHUB_TOKEN" ]] && command -v gh >/dev/null 2>&1; then
+  export GITHUB_TOKEN="$(gh auth token 2>/dev/null)"
+fi
+: "${TENV_GITHUB_TOKEN:=$GITHUB_TOKEN}"
+export TENV_GITHUB_TOKEN
+
 # mise: polyglot version manager (Java, Gradle, Maven, Kotlin, ...)
 command -v mise >/dev/null && eval "$(mise activate zsh)"
 
