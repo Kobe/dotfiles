@@ -53,6 +53,8 @@ brew "gh"
 brew "git"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
+# Audit git repos for secrets
+brew "gitleaks"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software

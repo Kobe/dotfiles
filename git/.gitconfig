@@ -15,6 +15,9 @@
 	autocrlf = input
 	editor = vi
 	excludesfile = ~/.gitignore_global
+	# gitleaks secret scan before every commit, in every repo. Repos that set
+	# core.hooksPath themselves (husky) take precedence over this.
+	hooksPath = ~/.githooks
 [color]
 	ui = true
 	branch = auto

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Block commits that contain secrets. Active in every repo via core.hooksPath in
+# .gitconfig — repos that set core.hooksPath themselves (husky) override this and
+# are covered by GitHub's push protection instead.
+#
+# Skip once with:  git commit --no-verify
+# Allowlist a false positive in the repo's .gitleaks.toml, not by disabling this.
+
+command -v gitleaks >/dev/null 2>&1 || {
+	printf 'pre-commit: gitleaks not installed, skipping secret scan\n' >&2
+	exit 0
+}
+
+# --redact keeps found values out of the terminal scrollback and CI logs.
+gitleaks git --staged --redact --no-banner --log-level warn || {
+	printf '\npre-commit: secrets detected in staged changes — commit aborted.\n' >&2
+	printf 'Remove them, or run `git commit --no-verify` if this is a false positive.\n' >&2
+	exit 1
+}

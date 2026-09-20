@@ -9,13 +9,13 @@ Personal macOS dotfiles, managed with GNU `stow`. Each top-level directory is a 
 ## Commands
 
 ```bash
-./install.sh          # installs Homebrew + stow, brew bundle from homebrew/Brewfile, stows zsh git mise
+./install.sh          # installs Homebrew + stow, brew bundle from homebrew/Brewfile, stows zsh git mise githooks
 ./uninstall.sh         # removes symlinks (stow -D) for zsh git
 ./update-brewfile.sh   # regenerates homebrew/Brewfile from current system state (brew bundle dump --force)
 ./macos/defaults.sh    # applies macOS system defaults (Finder, Dock, trackpad, screenshots); destructive/idempotent `defaults write` calls, restarts Finder/Dock
 ```
 
-Stow is called explicitly per package (`stow -d "$DOTFILES_DIR" -t ~ zsh git mise`) — `uninstall.sh` only unstows `zsh git` (not `mise`), keep that in sync if packages change.
+Stow is called explicitly per package (`stow -d "$DOTFILES_DIR" -t ~ zsh git mise githooks`) — `install.sh` and `uninstall.sh` list the packages separately, keep both in sync if packages change.
 
 ## Structure
 
@@ -23,6 +23,7 @@ Stow is called explicitly per package (`stow -d "$DOTFILES_DIR" -t ~ zsh git mis
 - `git/` — `.gitconfig` (tracked, no identity), `.gitconfig.local.template` (copy to `~/.gitconfig.local`, gitignored, holds `user.name`/`email`/`signingkey`), `.gitignore_global`
 - `homebrew/Brewfile` — full package list (brew/cask/mas/vscode); regenerate via `update-brewfile.sh`, don't hand-edit entries that came from `brew bundle dump`
 - `mise/.config/mise/config.toml` — polyglot tool versions (java, gradle, maven, kotlin, node, pnpm, yarn), activated from `.zshrc`
+- `githooks/.githooks/pre-commit` — gitleaks scan of staged changes, applied to every repo via `core.hooksPath` in `.gitconfig`; exits 0 when gitleaks is absent so a fresh machine isn't blocked
 - `macos/defaults.sh` — one-shot system preference script, not idempotent-safe to re-run blindly (kills Finder/Dock)
 
 ## Secrets model

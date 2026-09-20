@@ -36,6 +36,6 @@ fi
 
 # Stow dotfiles
 echo "Linking dotfiles..."
-stow -d "$DOTFILES_DIR" -t ~ zsh git mise
+stow -d "$DOTFILES_DIR" -t ~ zsh git mise githooks
 
 echo "Done!"

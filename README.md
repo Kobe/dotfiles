@@ -48,6 +48,7 @@ chmod 600 ~/.gitconfig.local ~/.zshenv.local ~/.aliases_company
 | **git/** | .gitconfig, .gitignore_global, .gitconfig.local.template |
 | **homebrew/** | Brewfile |
 | **mise/** | .config/mise/config.toml (tool versions) |
+| **githooks/** | .githooks/pre-commit (gitleaks secret scan, wired up via `core.hooksPath`) |
 | **macos/** | defaults.sh (system preferences) |
 
 Machine-local files are not part of any package and stay untracked:
