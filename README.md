@@ -13,9 +13,16 @@ cd ~/dotfiles
 ## Post-Install
 
 ```bash
-# Copy and edit local git config
+# Copy and edit local git config (holds name, email, signing key)
 cp ~/.gitconfig.local.template ~/.gitconfig.local
 vi ~/.gitconfig.local
+
+# Optional machine-local overrides, both sourced only if present
+vi ~/.zshenv.local      # env vars, AWS profiles
+vi ~/.aliases_company   # company/project-specific aliases
+
+# Keep anything machine-local owner-only
+chmod 600 ~/.gitconfig.local ~/.zshenv.local ~/.aliases_company
 
 # Apply macOS defaults (optional)
 ./macos/defaults.sh
@@ -37,7 +44,11 @@ vi ~/.gitconfig.local
 
 | Package | Contents |
 |---------|----------|
-| **zsh/** | .zshrc, .aliases |
+| **zsh/** | .zshrc, .aliases, .zshenv |
 | **git/** | .gitconfig, .gitignore_global, .gitconfig.local.template |
 | **homebrew/** | Brewfile |
-| **macos/** | defaults.sh (System-Einstellungen) |
+| **mise/** | .config/mise/config.toml (tool versions) |
+| **macos/** | defaults.sh (system preferences) |
+
+Machine-local files are not part of any package and stay untracked:
+`~/.gitconfig.local`, `~/.zshenv.local`, `~/.aliases_company`.
