@@ -1,14 +1,10 @@
 tap "grafana/grafana"
 # CLI tool for working with Architecture Decision Records
 brew "adr-tools"
-# CLI toolkit for working with Akamai's APIs
-brew "akamai"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Securely manage AWS API credentials using AWS SSO
 brew "aws-sso-cli"
-# Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)
-brew "aws-sso-util"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -75,8 +71,6 @@ brew "imagemagick"
 brew "qpdf"
 # Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
-# Kubernetes command-line interface
-brew "kubernetes-cli"
 # Scalable user load testing tool written in Python
 brew "locust"
 # Run LogQL queries against a Loki server
@@ -143,8 +137,6 @@ brew "wget"
 brew "wrk"
 # Grafana Cloud CLI
 brew "grafana/grafana/gcx", trusted: true
-# Password manager that keeps all passwords secure behind one password
-cask "1password"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
@@ -163,98 +155,18 @@ cask "google-chrome"
 cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
-# Spot and merge differences in text and image files or folders
-cask "kaleidoscope"
-# Tool to control external monitor brightness & volume
-cask "monitorcontrol"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Collaboration platform for API development
-cask "postman"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Web browser
 cask "safari-technology-preview"
-# Plugin for AWS CLI to start and end sessions that connect to managed instances
-cask "session-manager-plugin"
-# IDE, client, and GUI for MongoDB
-cask "studio-3t-community"
 # Text editor for code, markup and prose
 cask "sublime-text"
 # General-purpose text editor
 cask "textmate"
 # Rust-based terminal
 cask "warp"
-# Video communication and virtual meeting platform
-cask "webex"
 # Full-featured companion app to the YubiKey
 cask "yubico-authenticator"
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Microsoft To Do", id: 1274495053
-mas "Numbers", id: 409203825
-vscode "astro-build.astro-vscode"
-vscode "betterthantomorrow.calva"
-vscode "betterthantomorrow.calva-spritz"
-vscode "bradlc.vscode-tailwindcss"
-vscode "christian-kohler.npm-intellisense"
-vscode "csstools.postcss"
-vscode "davidanson.vscode-markdownlint"
-vscode "deque-systems.vscode-axe-linter"
-vscode "docker.docker"
-vscode "eamodio.gitlens"
-vscode "editorconfig.editorconfig"
-vscode "felipe.nasc-touchbar"
-vscode "firsttris.vscode-jest-runner"
-vscode "flowtype.flow-for-vscode"
-vscode "foxundermoon.next-js"
-vscode "fwcd.kotlin"
-vscode "github.vscode-github-actions"
-vscode "hashicorp.terraform"
-vscode "iampeterbanjo.elixirlinter"
-vscode "j-brooke.fracturedjsonvsc"
-vscode "jakebecker.elixir-ls"
-vscode "jock.svg"
-vscode "llvm-vs-code-extensions.lldb-dap"
-vscode "mathiasfrohlich.kotlin"
-vscode "mattfoulks.har-analyzer"
-vscode "mjmcloug.vscode-elixir"
-vscode "ms-azuretools.vscode-containers"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-edgedevtools.vscode-edge-devtools"
-vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
-vscode "ms-mssql.data-workspace-vscode"
-vscode "ms-mssql.mssql"
-vscode "ms-mssql.sql-bindings-vscode"
-vscode "ms-mssql.sql-database-projects-vscode"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode.live-server"
-vscode "ms-vscode.makefile-tools"
-vscode "neilding.language-liquid"
-vscode "orta.vscode-jest"
-vscode "redhat.java"
-vscode "redhat.vscode-xml"
-vscode "redhat.vscode-yaml"
-vscode "saratravi.elixir-formatter"
-vscode "sidthesloth.html5-boilerplate"
-vscode "sissel.shopify-liquid"
-vscode "spmeesseman.vscode-taskexplorer"
-vscode "streetsidesoftware.code-spell-checker"
-vscode "swiftlang.swift-vscode"
-vscode "unclebeast.har-viewer"
-vscode "unifiedjs.vscode-mdx"
-vscode "vscjava.vscode-gradle"
-vscode "vscjava.vscode-java-debug"
-vscode "vscjava.vscode-java-dependency"
-vscode "vscjava.vscode-java-pack"
-vscode "vscjava.vscode-java-test"
-vscode "vscjava.vscode-maven"
-vscode "vue.volar"
-vscode "webpagetest.wpt-vscode-extension"
-vscode "wix.vscode-import-cost"
 npm "corepack"

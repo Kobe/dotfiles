@@ -1,0 +1,36 @@
+# Mac App Store apps.
+#
+# Separate from homebrew/Brewfile so that `brew bundle dump` on the main file
+# cannot clobber this list, and so games stay out of a machine setup.
+#
+# Requires the `mas` CLI (declared in homebrew/Brewfile) and an Apple Account
+# that already "owns" each app — `mas install` cannot make a first purchase.
+#
+# Install:  brew bundle --file=homebrew/Brewfile.mas
+# Check:    brew bundle check --file=homebrew/Brewfile.mas
+
+# Development
+mas "Xcode", id: 497799835
+mas "Apple Developer", id: 640199958
+mas "TestFlight", id: 899247664
+mas "Kaleidoscope", id: 587512244
+mas "SubEthaEdit", id: 728530824
+
+# Design and images
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id: 824183456
+mas "Pixelmator", id: 407963104
+
+# Media conversion
+mas "To Audio Converter 2", id: 1073828411
+mas "Webp Converter", id: 1527716894
+mas "WebPonize", id: 1526039365
+
+# Communication
+mas "Slack", id: 803453959
+mas "Ivory", id: 6444602274
+
+# Utilities
+mas "Raycast Companion", id: 6738274497
+mas "SingleFile", id: 6444322545
+mas "a11yToolsDesktop", id: 1364813335
