@@ -42,10 +42,9 @@ fi
 # --- Docker completions ---------------------------------
 fpath=(~/.docker/completions $fpath)
 autoload -Uz compinit
-# -C: skippt teure Sicherheitschecks (nutze -i, wenn du Checks willst)
-# eigener Dump-Pfad verhindert Neuberechnung
+# own dump path avoids recomputation; insecure-directory checks stay on
 ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump-$ZSH_VERSION"
-compinit -C -d "$ZSH_COMPDUMP"
+compinit -d "$ZSH_COMPDUMP"
 
 # --- Bun completions ----------------------------------
 [ -s ~/.bun/_bun ] && source ~/.bun/_bun
