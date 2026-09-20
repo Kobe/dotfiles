@@ -4,10 +4,11 @@
 #
 # Everything machine-specific goes here. The signing policy itself
 # (gpg.format, commit.gpgsign) lives in the tracked .gitconfig — only the key,
-# the allowed-signers file and the credential helper differ per machine.
+# the allowed-signers file and the credential helper differ per machine. Don't
+# repeat the policy keys here; one source per key.
 #
-# Note: .gitconfig includes this file at the top, so values set later in
-# .gitconfig win over anything set here.
+# .gitconfig includes this file last, so anything set here overrides the tracked
+# config — that is the point of this file. Use it when a machine has to deviate.
 
 [user]
     name = Kobe
