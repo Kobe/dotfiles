@@ -72,3 +72,6 @@ export PNPM_HOME="$HOME/Library/pnpm"
 
 # mise: polyglot version manager (Java, Gradle, Maven, Kotlin, ...)
 command -v mise >/dev/null && eval "$(mise activate zsh)"
+
+# pipx
+export PATH="$PATH:$HOME/.local/bin"
