@@ -3,3 +3,6 @@
 .DS_Store
 .vscode/
 
+# machine-local, untracked overrides (AWS profiles, account-specific config)
+.zshenv.local
+
