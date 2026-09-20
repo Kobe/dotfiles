@@ -1,103 +1,201 @@
-tap "cjbassi/ytop"
-tap "ddev/ddev"
-tap "hashicorp/tap"
-tap "menubar-apps/menubar-apps"
-tap "sdkman/tap"
-tap "shinokada/consize"
-tap "syncdk/aws-session-manager-plugin"
-tap "warrensbox/tap"
+tap "grafana/grafana"
+# CLI tool for working with Architecture Decision Records
 brew "adr-tools"
+# CLI toolkit for working with Akamai's APIs
 brew "akamai"
-brew "webp"
+# Download with resuming and segmented downloading
 brew "aria2"
-brew "node"
-brew "aws-cdk"
+# Securely manage AWS API credentials using AWS SSO
 brew "aws-sso-cli"
+# Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)
 brew "aws-sso-util"
-brew "python@3.13"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Dependency Manager for PHP
 brew "composer"
+# Create and run Linux containers using lightweight virtual machines
 brew "container"
+# Manage Apple Container with Docker Compose files
 brew "container-compose"
+# GNU File, Shell, and Text utilities
 brew "coreutils"
-brew "docker", link: false
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Platform keystore credential helper for Docker
 brew "docker-credential-helper"
+# View disk space usage and delete unwanted data, fast
 brew "dua-cli"
+# More intuitive version of du in rust
 brew "dust"
+# Programming language for highly scalable real-time systems
 brew "erlang"
+# Functional metaprogramming aware language built on Erlang VM
 brew "elixir"
+# Modern, maintained replacement for ls
 brew "eza"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
 brew "gh"
+# Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
-brew "openjdk"
-brew "gradle"
+# Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Command-line tool for generating regular expressions
 brew "grex"
+# HTTP load generator, ApacheBench (ab) replacement
 brew "hey"
+# Library for communicating with USB and Bluetooth HID devices
 brew "hidapi"
+# Improved top (interactive process viewer)
 brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
+# Update of iperf: measures TCP, UDP, and SCTP bandwidth
 brew "iperf3"
-brew "kotlin"
+# Kubernetes command-line interface
 brew "kubernetes-cli"
-brew "python@3.12"
+# Scalable user load testing tool written in Python
 brew "locust"
+# Run LogQL queries against a Loki server
+brew "logcli"
+# List USB devices, just like the Linux lsusb command
 brew "lsusb"
-brew "maven"
-brew "mermaid-cli"
+# Mac App Store command-line interface
+brew "mas"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Project documentation with Markdown
+brew "mkdocs"
+# Deep clean and optimize your Mac
+brew "mole"
+# Open source relational database management system
+brew "mysql-client"
+# NCurses Disk Usage
 brew "ncdu"
-brew "node@22"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Libraries for security-enabled client and server applications
 brew "nss"
+# Manage multiple Node.js versions
 brew "nvm"
+# Adds an OCR text layer to scanned PDF files
+brew "ocrmypdf"
+# HTTP load generator, inspired by rakyll/hey with tui animation
 brew "oha"
-brew "openjdk@21"
-brew "pnpm"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Replace port numbers with stable, named local URLs for humans and agents
+brew "portless"
+# Wrapper to colorize and simplify ping's output
 brew "prettyping"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Generic machine emulator and virtualizer
 brew "qemu"
+# Toolkit to help you get started with Spec-Driven Development
 brew "specify"
-brew "speedtest-cli"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
-brew "terragrunt"
-brew "tfenv"
-brew "typescript"
+# OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
+brew "tenv"
+# Enables extra languages support for Tesseract
+brew "tesseract-lang"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# HTTP load testing tool and library
 brew "vegeta"
-brew "webpack"
+# Internet file retriever
 brew "wget"
+# HTTP benchmarking tool
 brew "wrk"
-brew "yarn"
+# Flexible and fast Zsh plugin manager
 brew "zinit"
-brew "cjbassi/ytop/ytop"
-brew "ddev/ddev/ddev"
-brew "hashicorp/tap/terraform"
-brew "sdkman/tap/sdkman-cli"
-brew "shinokada/consize/consize"
-brew "syncdk/aws-session-manager-plugin/aws-session-manager-plugin", link: false
-brew "warrensbox/tap/tgswitch"
+# Grafana Cloud CLI
+brew "grafana/grafana/gcx", trusted: true
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
-cask "chatgpt"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
 cask "claude-code"
-cask "codex-app"
+# Online diagram software
 cask "drawio"
+# Collaborative team software
 cask "figma"
+# Web browser
+cask "firefox"
+# Change the behavior of the fn keys depending on the active application
+cask "fluor"
+# Web browser
+cask "google-chrome"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# JetBrains tools manager
 cask "jetbrains-toolbox"
+# Spot and merge differences in text and image files or folders
+cask "kaleidoscope"
+# Tool to control external monitor brightness & volume
 cask "monitorcontrol"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Collaboration platform for API development
+cask "postman"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Web browser
+cask "safari-technology-preview"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
+# IDE, client, and GUI for MongoDB
 cask "studio-3t-community"
+# Text editor for code, markup and prose
+cask "sublime-text"
+# General-purpose text editor
+cask "textmate"
+# Rust-based terminal
+cask "warp"
+# Video communication and virtual meeting platform
 cask "webex"
+# Full-featured companion app to the YubiKey
 cask "yubico-authenticator"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Microsoft To Do", id: 1274495053
+mas "Numbers", id: 409203825
 vscode "astro-build.astro-vscode"
 vscode "betterthantomorrow.calva"
 vscode "betterthantomorrow.calva-spritz"
@@ -114,8 +212,6 @@ vscode "firsttris.vscode-jest-runner"
 vscode "flowtype.flow-for-vscode"
 vscode "foxundermoon.next-js"
 vscode "fwcd.kotlin"
-vscode "github.copilot"
-vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "hashicorp.terraform"
 vscode "iampeterbanjo.elixirlinter"
@@ -154,8 +250,6 @@ vscode "streetsidesoftware.code-spell-checker"
 vscode "swiftlang.swift-vscode"
 vscode "unclebeast.har-viewer"
 vscode "unifiedjs.vscode-mdx"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
 vscode "vscjava.vscode-gradle"
 vscode "vscjava.vscode-java-debug"
 vscode "vscjava.vscode-java-dependency"
@@ -164,5 +258,5 @@ vscode "vscjava.vscode-java-test"
 vscode "vscjava.vscode-maven"
 vscode "vue.volar"
 vscode "webpagetest.wpt-vscode-extension"
-vscode "withfig.fig"
 vscode "wix.vscode-import-cost"
+npm "corepack"
