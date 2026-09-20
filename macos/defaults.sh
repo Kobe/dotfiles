@@ -181,7 +181,9 @@ defaults write com.googlecode.iterm2 "Secure Input" -bool true
 #
 # Warp rewrites this domain when it quits, so it must not be running when this is
 # applied, or the old value is flushed back over it.
-if pgrep -xq "Warp"; then
+# Match the bundle path, not the process name: Warp's executable is called `stable`
+# (CFBundleExecutable), so `pgrep -x Warp` never matches.
+if pgrep -fq "/Applications/Warp.app/"; then
 	echo "  ! Warp is running — quit it and re-run, or its own state will overwrite MouseReportingEnabled."
 fi
 defaults write dev.warp.Warp-Stable MouseReportingEnabled -bool true
