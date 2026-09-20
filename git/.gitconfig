@@ -53,6 +53,11 @@
 	gpgsign = true
 [tag]
 	gpgsign = true
+[user]
+	# Refuse to guess an identity from hostname/username — a machine without
+	# ~/.gitconfig.local must fail loudly instead of authoring commits under a
+	# made-up or private address. name/email themselves belong in that file.
+	useConfigOnly = true
 # Last, so machine-local values win: git expands includes in place and the last
 # value read for a key takes effect.
 [include]
