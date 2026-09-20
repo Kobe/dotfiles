@@ -24,9 +24,10 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock tilesize -int 16
 
 # --- Screenshots ---
-# Save to /tmp/screenshots
-mkdir -p /tmp/screenshots
-defaults write com.apple.screencapture location -string "/tmp/screenshots"
+# Save to ~/Pictures/Screenshots: /tmp is world-readable and cleared on reboot,
+# and screenshots regularly capture tokens or session data
+mkdir -p "$HOME/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
 
 # --- Trackpad ---
 # Right-click in corner
