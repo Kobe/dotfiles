@@ -3,6 +3,11 @@
 .DS_Store
 .vscode/
 
-# machine-local, untracked overrides (AWS profiles, account-specific config)
-.zshenv.local
+# machine-local overrides — never tracked. These hold the work identity, signing
+# key paths and account-specific config; *.local covers .zshenv.local and
+# .gitconfig.local without matching .gitconfig.local.template.
+*.local
+.aliases_company
 
+# local audit reports — may quote findings verbatim
+SECURITY-AUDIT.md
