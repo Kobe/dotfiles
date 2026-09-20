@@ -1,7 +1,29 @@
 # Copy this file to ~/.gitconfig.local and fill in your details
 # cp ~/.gitconfig.local.template ~/.gitconfig.local
+# chmod 600 ~/.gitconfig.local
+#
+# Everything machine-specific goes here. The signing policy itself
+# (gpg.format, commit.gpgsign) lives in the tracked .gitconfig — only the key,
+# the allowed-signers file and the credential helper differ per machine.
+#
+# Note: .gitconfig includes this file at the top, so values set later in
+# .gitconfig win over anything set here.
 
 [user]
     name = Kobe
     email = 81110+Kobe@users.noreply.github.com
-    signingkey = ~/.ssh/foo.pub
+    signingkey = ~/.ssh/your_signing_key.pub
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
+
+[tag]
+    gpgsign = true
+
+# Written by `gh auth setup-git` — re-run that rather than editing by hand.
+[credential "https://github.com"]
+    helper =
+    helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+    helper =
+    helper = !/opt/homebrew/bin/gh auth git-credential
