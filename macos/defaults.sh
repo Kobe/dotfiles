@@ -25,9 +25,17 @@ defaults write com.apple.dock tilesize -int 16
 
 # --- Screenshots ---
 # Save to ~/Pictures/Screenshots: /tmp is world-readable and cleared on reboot,
-# and screenshots regularly capture tokens or session data
-mkdir -p "$HOME/Pictures/Screenshots"
-defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+# and screenshots regularly capture tokens or session data.
+#
+# Three keys, because the plain `location` key is dead: `strings /usr/sbin/screencapture`
+# on macOS 27 references only the two per-type keys. Setting `location` alone is a
+# silent no-op there, which is why an earlier version of this script had no effect.
+# It is kept for machines still on macOS 14 or older.
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$SCREENSHOT_DIR"
+defaults write com.apple.screencapture location                 -string "$SCREENSHOT_DIR"
+defaults write com.apple.screencapture location-screenshot      -string "$SCREENSHOT_DIR"
+defaults write com.apple.screencapture location-screenrecording -string "$SCREENSHOT_DIR"
 
 # --- Trackpad ---
 # Right-click in corner
