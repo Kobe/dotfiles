@@ -20,11 +20,9 @@ if pgrep -xq "System Settings"; then
 fi
 
 # --- Global (NSGlobalDomain) ---
-# Show file extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Full Keyboard Access: Tab moves focus between all controls, not just text fields
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
-# Follow the system light/dark schedule
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
 # Double-clicking a title bar zooms instead of minimising
 defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
@@ -60,17 +58,14 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Purge Trash items older than 30 days
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
-# No iCloud Drive for Desktop/Documents
-defaults write com.apple.finder FXICloudDriveEnabled -bool false
-defaults write com.apple.finder FXICloudDriveDesktop -bool false
-defaults write com.apple.finder FXICloudDriveDocuments -bool false
+# FXICloudDrive{Enabled,Desktop,Documents} are deliberately not written: they are
+# status Finder mirrors from CloudDocs, not settings it reads. The switch is in
+# System Settings > Apple ID > iCloud Drive, which also migrates the files.
 
 # --- Dock ---
 defaults write com.apple.dock autohide -bool true
-# Auto-hide delay (1 second)
 defaults write com.apple.dock autohide-delay -float 1
 defaults write com.apple.dock show-recents -bool false
-# Tile size (very small)
 defaults write com.apple.dock tilesize -int 16
 # Hot corner bottom-right: Quick Note (14). The modifier is written explicitly as 0
 # so the behaviour is reproducible instead of relying on the unset default.
@@ -105,9 +100,8 @@ defaults write com.apple.menuextra.clock ShowAMPM -bool true
 # and screenshots regularly capture tokens or session data.
 #
 # Three keys, because the plain `location` key is dead: `strings /usr/sbin/screencapture`
-# on macOS 27 references only the two per-type keys. Setting `location` alone is a
-# silent no-op there, which is why an earlier version of this script had no effect.
-# It is kept for machines still on macOS 14 or older.
+# on macOS 27 references only the two per-type keys, so setting `location` alone is a
+# silent no-op. It is kept for machines still on macOS 14 or older.
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SCREENSHOT_DIR"
 defaults write com.apple.screencapture location                 -string "$SCREENSHOT_DIR"
@@ -137,15 +131,16 @@ for domain in com.apple.AppleMultitouchTrackpad \
 	# Right-click via bottom-right corner (2), not two-finger click
 	defaults write "$domain" TrackpadCornerSecondaryClick -int 2
 	defaults write "$domain" TrackpadRightClick -bool false
-	# Scrolling on, with momentum
 	defaults write "$domain" TrackpadScroll -bool true
 	defaults write "$domain" TrackpadHorizScroll -int 1
 	defaults write "$domain" TrackpadMomentumScroll -bool true
-	# Pinch/rotate/smart-zoom off, they conflict with scrolling in editors
+	# Zoom and rotate off — they trigger while scrolling in editors
 	defaults write "$domain" TrackpadPinch -bool false
 	defaults write "$domain" TrackpadRotate -bool false
+	# Launchpad (4-finger pinch) and Show Desktop (5-finger spread) off
 	defaults write "$domain" TrackpadFourFingerPinchGesture -int 0
 	defaults write "$domain" TrackpadFiveFingerPinchGesture -int 0
+	# Smart zoom stays on (1) — a two-finger double tap is hard to hit by accident
 	defaults write "$domain" TrackpadTwoFingerDoubleTapGesture -int 1
 	# Three- and four-finger horizontal swipe = switch full-screen apps (2);
 	# vertical swipes and three-finger tap disabled
@@ -173,7 +168,24 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true
 # not the Apple Terminal name.
 defaults write com.googlecode.iterm2 "Secure Input" -bool true
 
-# Restart affected apps
+# --- Warp ---
+# Forward mouse events to full-screen (alt-screen) apps. With this off, Warp keeps the
+# wheel for its own scrollback and alternate scroll mode turns every notch into an
+# Up/Down keypress instead — inside a TUI that lands in the input line, so scrolling a
+# Claude Code session pages through prompt history rather than the output.
+#
+# Cost: click-drag selects for the app, not for Warp. Hold Shift to select text anyway.
+# Scroll forwarding has its own key (scroll_reporting_enabled, in ~/.warp/settings.toml)
+# that only takes effect while mouse reporting is on; it defaults to true and is left
+# alone here.
+#
+# Warp rewrites this domain when it quits, so it must not be running when this is
+# applied, or the old value is flushed back over it.
+if pgrep -xq "Warp"; then
+	echo "  ! Warp is running — quit it and re-run, or its own state will overwrite MouseReportingEnabled."
+fi
+defaults write dev.warp.Warp-Stable MouseReportingEnabled -bool true
+
 echo "Restarting Finder, Dock and SystemUIServer..."
 killall Finder
 killall Dock
@@ -182,3 +194,4 @@ killall SystemUIServer
 echo "Done."
 echo "  - Trackpad settings are read by the driver at login: log out and back in."
 echo "  - Secure Keyboard Entry applies to Terminal windows opened afterwards."
+echo "  - Warp mouse reporting applies on its next launch."
