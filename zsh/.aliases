@@ -9,6 +9,12 @@ alias dockerRemove='docker ps -a -q | xargs docker rm -f'
 alias dockerRemoveDanglingVolumes='docker volume ls -q -f dangling=true | xargs docker volume rm'
 alias dockerReset='docker system prune -a'
 
+# eleventy
+alias e11yMarkdown='npx @11ty/eleventy --formats=md'
+
+# gradle
+alias gradleCleanBuild='./gradlew clean build'
+
 # kubernetes
 alias k='kubectl'
 alias kn='kubectl ns'
