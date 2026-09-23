@@ -37,7 +37,8 @@
 	default = simple
 	autoSetupRemote = true
 [pull]
-	default = rebase
+	# `pull.default` is not a git key — the setting is `pull.rebase`.
+	rebase = true
 [status]
 	showUntrackedFiles = all
 [rerere]

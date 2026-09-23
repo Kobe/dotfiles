@@ -1,0 +1,64 @@
+# Personal-machine apps.
+#
+# Split out of homebrew/Brewfile so the main file stays the tooling a dotfiles
+# checkout actually needs, while browsers, chat, media and games live here.
+# Not installed by ./install.sh — run ./install-private.sh explicitly, the same
+# way homebrew/Brewfile.company is opt-in for work machines.
+#
+# Install:  ./install-private.sh
+# Check:    brew bundle check --file=homebrew/Brewfile.private
+#
+# update-brewfile.sh drops every entry listed here from the main Brewfile after
+# each dump, so the two files cannot merge back together.
+
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# System monitor for the menu bar
+cask "stats"
+# Automator software to start apps, run scripts or commands and more
+cask "lingon-x"
+
+# Multi-platform web browser
+cask "microsoft-edge"
+# Desktop client for GitHub repositories
+cask "github"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# File transfer application
+cask "transmit"
+
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# Native code editor
+cask "nova"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+
+# Voice and text chat software
+cask "discord"
+# Instant messaging application focusing on security
+cask "signal"
+
+# Online collaborative whiteboard platform
+cask "miro"
+# Digital design and prototyping platform
+cask "sketch"
+# Office suite
+cask "microsoft-office"
+# Provides updates to various Microsoft products — pulled in by microsoft-office
+# anyway, listed so `brew bundle check` matches what is actually installed.
+cask "microsoft-auto-update"
+
+# Multi-track audio editor and recorder
+cask "audacity"
+# Open-source video transcoder
+cask "handbrake-app"
+# Multimedia player
+cask "vlc"
+# Downloads music from playlists or channels
+cask "youtube-to-mp3"
+
+# Video game digital distribution service
+cask "steam"

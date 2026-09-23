@@ -1,6 +1,6 @@
 [tools]
 gradle = "9.6.0"
-java = "temurin-21.0.11"
+java = "temurin-21.0.12"
 maven = "3.9.16"
 kotlin = { version = "2.4.0", asset_pattern = "kotlin-compiler-*.zip", bin_path = "kotlinc/bin" }
 node = "lts"

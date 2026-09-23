@@ -1,0 +1,31 @@
+# Work-only packages.
+#
+# Split out of homebrew/Brewfile so a personal machine does not pull in company
+# tooling. Not installed by ./install.sh — run ./install-company.sh explicitly.
+#
+# Install:  ./install-company.sh
+# Check:    brew bundle check --file=homebrew/Brewfile.company
+#
+# update-brewfile.sh keeps these out of the main Brewfile: after dumping it
+# drops every entry listed here, so a dump on a work machine cannot merge the
+# two files back together.
+
+# CLI toolkit for working with Akamai's APIs
+brew "akamai"
+# Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)
+brew "aws-sso-util"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol"
+# Collaboration platform for API development
+cask "postman"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
+# IDE, client, and GUI for MongoDB
+cask "studio-3t-community"
+# Video communication and virtual meeting platform
+cask "webex"

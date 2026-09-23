@@ -28,6 +28,13 @@ fi
 echo "Installing Homebrew packages..."
 brew bundle --file="$DOTFILES_DIR/homebrew/Brewfile"
 
+# Mac App Store apps are tracked separately. Needs an Apple Account signed in to
+# the App Store that already owns each app, so failure is not fatal here — a
+# fresh machine should still get its dotfiles linked.
+if ! "$DOTFILES_DIR/install-mas.sh"; then
+    echo "Continuing without them — re-run ./install-mas.sh once signed in."
+fi
+
 # Setup fzf key bindings and completions
 if [[ -f /opt/homebrew/opt/fzf/install ]]; then
     echo "Setting up fzf..."
