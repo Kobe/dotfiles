@@ -11,7 +11,7 @@ Personal macOS dotfiles, managed with GNU `stow`. Each top-level directory is a 
 ```bash
 ./install.sh          # installs Homebrew + stow, brew bundle from homebrew/Brewfile, runs ./install-mas.sh (non-fatal), stows zsh git mise githooks
 ./install-mas.sh      # Mac App Store apps from homebrew/Brewfile.mas; installs `mas` if missing, then reports outdated apps limited to the ids that file tracks. Standalone-safe, exits non-zero if an app could not be installed
-./uninstall.sh         # removes symlinks (stow -D) for zsh git
+./uninstall.sh         # removes symlinks (stow -D) for zsh git mise githooks
 ./install-company.sh   # work-only packages from homebrew/Brewfile.company; deliberately NOT called by install.sh, so a personal machine stays clean
 ./install-private.sh   # personal apps from homebrew/Brewfile.private (browsers, chat, media, games); also opt-in, same reasoning
 ./update-brewfile.sh   # regenerates homebrew/Brewfile from current system state (brew bundle dump --force --no-mas), then drops every entry listed in homebrew/Brewfile.company and homebrew/Brewfile.private (plus its description comment) so a dump cannot merge the split files back into the main one
@@ -36,7 +36,8 @@ Stow is called explicitly per package (`stow -d "$DOTFILES_DIR" -t ~ zsh git mis
 ## Secrets model
 
 - `~/.gitconfig.local` and `~/.zshenv.local` are machine-local and gitignored — never add real credentials to tracked files.
-- Runtime secrets (npm/GitHub tokens) are pulled from the macOS Keychain in `.zshenv` via `security find-generic-password`, not stored in the repo.
+- The tracked `zsh/.zshenv` holds no secrets itself — it only sources `~/.zshenv.local` when that exists. npm/registry auth lives in `~/.npmrc` (owner-only) rather than the environment, because `.zshenv` is read by every shell including non-interactive ones and would hand a token to every package lifecycle script.
+- `GITHUB_TOKEN` is the exception and is set in `.zshrc`, not `.zshenv`: it comes from `gh auth token` and is only exported when gh actually returns one, since an empty value makes tools believe they are authenticated and then fail with a 401.
 
 ## Conventions
 
