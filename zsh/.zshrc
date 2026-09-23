@@ -97,6 +97,15 @@ if [[ -z "$GITHUB_TOKEN" ]] && command -v gh >/dev/null 2>&1; then
 fi
 [[ -n "$GITHUB_TOKEN" ]] && : "${TENV_GITHUB_TOKEN:=$GITHUB_TOKEN}" && export TENV_GITHUB_TOKEN
 
+# Load ssh keys whose passphrase is in the login Keychain into the agent.
+# Needed for SSH commit signing: `ssh-keygen -Y sign` (which git calls) reads
+# neither ssh_config nor the Keychain — it only consults a running agent, and
+# launchd's agent starts empty after every login. Costs ~5ms and is a no-op when
+# the keys are already loaded.
+if [[ "$OSTYPE" == darwin* ]] && command -v ssh-add >/dev/null 2>&1; then
+  ssh-add --apple-load-keychain --quiet 2>/dev/null
+fi
+
 # mise: polyglot version manager (Java, Gradle, Maven, Kotlin, ...)
 command -v mise >/dev/null && eval "$(mise activate zsh)"
 
