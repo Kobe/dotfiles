@@ -40,10 +40,10 @@ chmod 600 ~/.gitconfig.local ~/.zshenv.local ~/.aliases_company
 ./uninstall.sh
 ```
 
-## Packages
+## Structure
 
-| Package | Contents |
-|---------|----------|
+| Directory | Contents |
+|-----------|----------|
 | **zsh/** | .zshrc, .aliases, .zshenv |
 | **git/** | .gitconfig, .gitignore_global, .gitconfig.local.template |
 | **homebrew/** | Brewfile |
@@ -51,5 +51,5 @@ chmod 600 ~/.gitconfig.local ~/.zshenv.local ~/.aliases_company
 | **githooks/** | .githooks/pre-commit (gitleaks secret scan, wired up via `core.hooksPath`) |
 | **macos/** | defaults.sh (system preferences) |
 
-Machine-local files are not part of any package and stay untracked:
+Machine-local files are not tracked:
 `~/.gitconfig.local`, `~/.zshenv.local`, `~/.aliases_company`.

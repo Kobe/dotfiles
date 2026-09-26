@@ -128,7 +128,6 @@ brew "qemu"
 # Toolkit to help you get started with Spec-Driven Development
 brew "specify"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
-brew "stow"
 # OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
 brew "tenv"
 # Enables extra languages support for Tesseract
