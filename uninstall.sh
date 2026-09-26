@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-
 echo "Removing dotfiles symlinks..."
-stow -d "$DOTFILES_DIR" -t ~ -D zsh git mise githooks
+for f in ~/.zshrc ~/.zshenv ~/.aliases ~/.gitconfig ~/.gitignore_global ~/.gitconfig.local.template ~/.githooks ~/.config/mise/config.toml; do
+    [[ -L "$f" ]] && rm "$f"
+done
 
 echo "Done!"
