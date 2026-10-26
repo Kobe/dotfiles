@@ -18,12 +18,6 @@ if ! command -v brew &> /dev/null; then
     fi
 fi
 
-# Install stow if not present
-if ! command -v stow &> /dev/null; then
-    echo "Installing stow..."
-    brew install stow
-fi
-
 # Install packages from Brewfile
 echo "Installing Homebrew packages..."
 brew bundle --file="$DOTFILES_DIR/homebrew/Brewfile"
@@ -34,8 +28,16 @@ if [[ -f /opt/homebrew/opt/fzf/install ]]; then
     /opt/homebrew/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 fi
 
-# Stow dotfiles
+# Link dotfiles
 echo "Linking dotfiles..."
-stow -d "$DOTFILES_DIR" -t ~ zsh git mise githooks
+ln -sfn "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
+ln -sfn "$DOTFILES_DIR/zsh/.zshenv" ~/.zshenv
+ln -sfn "$DOTFILES_DIR/zsh/.aliases" ~/.aliases
+ln -sfn "$DOTFILES_DIR/git/.gitconfig" ~/.gitconfig
+ln -sfn "$DOTFILES_DIR/git/.gitignore_global" ~/.gitignore_global
+ln -sfn "$DOTFILES_DIR/git/.gitconfig.local.template" ~/.gitconfig.local.template
+ln -sfn "$DOTFILES_DIR/githooks/.githooks" ~/.githooks
+mkdir -p ~/.config/mise
+ln -sfn "$DOTFILES_DIR/mise/.config/mise/config.toml" ~/.config/mise/config.toml
 
 echo "Done!"

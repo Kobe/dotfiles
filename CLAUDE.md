@@ -4,18 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Personal macOS dotfiles, managed with GNU `stow`. Each top-level directory is a stow "package" whose contents mirror `$HOME` (e.g. `zsh/.zshrc` → `~/.zshrc`).
+Personal macOS dotfiles. Each top-level directory groups related files whose layout mirrors `$HOME` (e.g. `zsh/.zshrc` → `~/.zshrc`); `install.sh` symlinks them into place.
 
 ## Commands
 
 ```bash
-./install.sh          # installs Homebrew + stow, brew bundle from homebrew/Brewfile, stows zsh git mise githooks
-./uninstall.sh         # removes symlinks (stow -D) for zsh git
+./install.sh          # installs Homebrew, brew bundle from homebrew/Brewfile, symlinks zsh/git/mise/githooks files into ~
+./uninstall.sh         # removes those symlinks
 ./update-brewfile.sh   # regenerates homebrew/Brewfile from current system state (brew bundle dump --force)
 ./macos/defaults.sh    # applies macOS system defaults (NSGlobalDomain, Finder, Dock, WindowManager, menu bar clock, screenshots, trackpad, Terminal); destructive/idempotent `defaults write` calls, restarts Finder/Dock/SystemUIServer
 ```
 
-Stow is called explicitly per package (`stow -d "$DOTFILES_DIR" -t ~ zsh git mise githooks`) — `install.sh` and `uninstall.sh` list the packages separately, keep both in sync if packages change.
+Symlinks are listed explicitly in `install.sh` and `uninstall.sh` — keep both in sync when adding or removing files.
 
 ## Structure
 
